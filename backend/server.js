@@ -5,8 +5,11 @@ const app = express();
 const port = process.env.PORT;
 const workoutRoutes = require("./routes/workout");
 const userRoutes = require("./routes/user");
-app.use(express.json());
+// use cors
+const cors = require("cors");
+app.use(cors());
 
+app.use(express.json());
 app.use((req, res, next) => {
   console.log(req.path, req.method);
   next();
